@@ -1,18 +1,20 @@
 /* eslint-disable react/no-unknown-property */
 import React from 'react';
-import { useAnimations, useGLTF } from '@react-three/drei';
+import { Clone, useAnimations, useGLTF } from '@react-three/drei';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import * as THREE from 'three';
 import { LoopOnce } from 'three';
+import { useMemo } from 'react';
+import { useFrame } from '@react-three/fiber';
 
 export default function Stag() {
   const { scene, animations } = useGLTF('/Stag.gltf');
   const stagRef = useRef();
   const { actions, names } = useAnimations(animations, stagRef);
-
-  //   const [playing, setPlaying] = useState(false);
+  const copiedScene = useMemo(() => scene.clone(), [scene]);
+  const copiedAnimations = useMemo(() => animations.map((a) => a.clone()), [animations]);
 
   const threat = actions[names[0]];
   const kick = actions[names[1]];
@@ -27,7 +29,9 @@ export default function Stag() {
   const alertR = actions[names[10]];
   const vault = actions[names[11]];
   const walk = actions[names[12]];
-  console.log(names);
+
+  console.log('names: ', names);
+  console.log('scene: ', scene);
 
   const animationNames = [
     'Attack_Headbutt',
@@ -63,68 +67,45 @@ export default function Stag() {
 
   console.log(actions);
 
-  //   function fadeToAction(name, duration) {
-  //     let activeAction, previousAction;
-  //     previousAction = activeAction;
-  //     activeAction = actions[name];
+  const stag1 = useRef();
+  const stag2 = useRef();
+  const stag3 = useRef();
 
-  //     if (previousAction !== activeAction) {
-  //       previousAction.fadeOut(duration);
-  //     }
-
-  //     activeAction.reset().setEffectiveTimeScale(1).setEffectiveWeight(1).fadeIn(duration).play();
-  //   }
-
-  useEffect(() => {
+  useFrame(() => {
+    const attack = actions[names[0]];
+    const kick = actions[names[1]];
+    const dead = actions[names[2]];
     const drink = actions[names[3]];
+    const run = actions[names[4]];
+    const leap = actions[names[5]];
     const stomp = actions[names[6]];
     const sweep = actions[names[7]];
+    const challenge = actions[names[8]];
+    const hitReactL = actions[names[9]];
+    const hitReactR = actions[names[10]];
+    const vault = actions[names[11]];
     const walk = actions[names[12]];
-
-    // actions[names[3]].play();
-    drink.play();
-    // walk.clampWhenFinished = true;
-    // walk.reset();
-    // if (walk.finished === true) {
+    stomp.play();
+    // setTimeout(() => {
     //   drink.play();
-    //   drink.clampWhenFinished = true;
-    //   drink.loop = THREE.LoopOnce;
-    // }
-    // drink.reset();
-    // if (drink.finished === true) {
     //   stomp.play();
-    // //   stomp.clampWhenFinished = true;
-    //   stomp.loop = THREE.LoopOnce;
-    // }
-    // stomp.reset();
-    // sweep.play();
-    // sweep.clampWhenFinished = true;
-    // sweep.loop = THREE.LoopOnce;
-    // sweep.reset();
-    // if (walk.isRunning === true) {
-    //   stagRef.current.position.z += 0.5;
-    // }
-    // challenge.loop = THREE.LoopOnce;
-    // challenge.clampWhenFinished = true;
-    // challenge.reset();
-    // drink.play();
-    // drink.loop = THREE.LoopOnce;
-    // drink.clampWhenFinished = true;
-    // drink.reset();
-    // walk.play();
-    // walk.loop = THREE.LoopOnce;
+    //   sweep.play();
+    //   walk.play();
+    //   stomp.play();
+    //   kick.play();
+    // }, 5000);
     console.log("we're animating!");
+
   });
 
-  //   const clickHandler = () => {
-  //     actions
-  //   };
-
   return (
-    <group>
-      <mesh ref={stagRef}>
-        <primitive object={scene} />
-      </mesh>
+    <group ref={stagRef} castShadow receiveShadow>
+      <primitive
+        ref={stag1}
+        object={copiedScene}
+        rotation={[0, (Math.random() - 0.5) * 2, 0]}
+        position={[(Math.random() - 0.5) * 10, 0, (Math.random() - 0.5) * 10]}
+      />
     </group>
   );
 }

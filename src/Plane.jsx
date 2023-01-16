@@ -1,0 +1,137 @@
+/* eslint-disable react/no-unknown-property */
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useRef } from 'react';
+import { DoubleSide, GridHelper } from 'three';
+import PlaneSquare from './PlaneSquare';
+
+export default function Plane(props) {
+  const grid = useRef();
+  return (
+    <group rotation={[Math.PI * 0.25, 0, 0]}>
+      <gridHelper ref={grid} color="transparent" position-y={-0.1} args={[22, 11]} />
+      <PlaneSquare position={[-10, -0.1, -10]} {...props} />
+      <PlaneSquare position={[-8, -0.1, -10]} {...props} />
+      <PlaneSquare position={[-6, -0.1, -10]} {...props} />
+      <PlaneSquare position={[-4, -0.1, -10]} {...props} />
+      <PlaneSquare position={[-2, -0.1, -10]} {...props} />
+      <PlaneSquare position={[0, -0.1, -10]} {...props} />
+      <PlaneSquare position={[2, -0.1, -10]} {...props} />
+      <PlaneSquare position={[4, -0.1, -10]} {...props} />
+      <PlaneSquare position={[6, -0.1, -10]} {...props} />
+      <PlaneSquare position={[8, -0.1, -10]} {...props} />
+      <PlaneSquare position={[10, -0.1, -10]} {...props} />
+      <PlaneSquare position={[-10, -0.1, -8]} {...props} />
+      <PlaneSquare position={[-8, -0.1, -8]} {...props} />
+      <PlaneSquare position={[-6, -0.1, -8]} {...props} />
+      <PlaneSquare position={[-4, -0.1, -8]} {...props} />
+      <PlaneSquare position={[-2, -0.1, -8]} {...props} />
+      <PlaneSquare position={[0, -0.1, -8]} {...props} />
+      <PlaneSquare position={[2, -0.1, -8]} {...props} />
+      <PlaneSquare position={[4, -0.1, -8]} {...props} />
+      <PlaneSquare position={[6, -0.1, -8]} {...props} />
+      <PlaneSquare position={[8, -0.1, -8]} {...props} />
+      <PlaneSquare position={[10, -0.1, -8]} {...props} />
+      <PlaneSquare position={[-10, -0.1, -6]} {...props} />
+      <PlaneSquare position={[-8, -0.1, -6]} {...props} />
+      <PlaneSquare position={[-6, -0.1, -6]} {...props} />
+      <PlaneSquare position={[-4, -0.1, -6]} {...props} />
+      <PlaneSquare position={[-2, -0.1, -6]} {...props} />
+      <PlaneSquare position={[0, -0.1, -6]} {...props} />
+      <PlaneSquare position={[2, -0.1, -6]} {...props} />
+      <PlaneSquare position={[4, -0.1, -6]} {...props} />
+      <PlaneSquare position={[6, -0.1, -6]} {...props} />
+      <PlaneSquare position={[8, -0.1, -6]} {...props} />
+      <PlaneSquare position={[10, -0.1, -6]} {...props} />
+      <PlaneSquare position={[-10, -0.1, -4]} {...props} />
+      <PlaneSquare position={[-8, -0.1, -4]} {...props} />
+      <PlaneSquare position={[-6, -0.1, -4]} {...props} />
+      <PlaneSquare position={[-4, -0.1, -4]} {...props} />
+      <PlaneSquare position={[-2, -0.1, -4]} {...props} />
+      <PlaneSquare position={[0, -0.1, -4]} {...props} />
+      <PlaneSquare position={[2, -0.1, -4]} {...props} />
+      <PlaneSquare position={[4, -0.1, -4]} {...props} />
+      <PlaneSquare position={[6, -0.1, -4]} {...props} />
+      <PlaneSquare position={[8, -0.1, -4]} {...props} />
+      <PlaneSquare position={[10, -0.1, -4]} {...props} />
+      <PlaneSquare position={[-10, -0.1, -2]} {...props} />
+      <PlaneSquare position={[-8, -0.1, -2]} {...props} />
+      <PlaneSquare position={[-6, -0.1, -2]} {...props} />
+      <PlaneSquare position={[-4, -0.1, -2]} {...props} />
+      <PlaneSquare position={[-2, -0.1, -2]} {...props} />
+      <PlaneSquare position={[0, -0.1, -2]} {...props} />
+      <PlaneSquare position={[2, -0.1, -2]} {...props} />
+      <PlaneSquare position={[4, -0.1, -2]} {...props} />
+      <PlaneSquare position={[6, -0.1, -2]} {...props} />
+      <PlaneSquare position={[8, -0.1, -2]} {...props} />
+      <PlaneSquare position={[10, -0.1, -2]} {...props} />
+      <PlaneSquare position={[-10, -0.1, 0]} {...props} />
+      <PlaneSquare position={[-8, -0.1, 0]} {...props} />
+      <PlaneSquare position={[-6, -0.1, 0]} {...props} />
+      <PlaneSquare position={[-4, -0.1, 0]} {...props} />
+      <PlaneSquare position={[-2, -0.1, 0]} {...props} />
+      <PlaneSquare position={[0, -0.1, 0]} {...props} />
+      <PlaneSquare position={[2, -0.1, 0]} {...props} />
+      <PlaneSquare position={[4, -0.1, 0]} {...props} />
+      <PlaneSquare position={[6, -0.1, 0]} {...props} />
+      <PlaneSquare position={[8, -0.1, 0]} {...props} />
+      <PlaneSquare position={[10, -0.1, 0]} {...props} />
+      <PlaneSquare position={[-10, -0.1, 10]} {...props} />
+      <PlaneSquare position={[-8, -0.1, 10]} {...props} />
+      <PlaneSquare position={[-6, -0.1, 10]} {...props} />
+      <PlaneSquare position={[-4, -0.1, 10]} {...props} />
+      <PlaneSquare position={[-2, -0.1, 10]} {...props} />
+      <PlaneSquare position={[0, -0.1, 10]} {...props} />
+      <PlaneSquare position={[2, -0.1, 10]} {...props} />
+      <PlaneSquare position={[4, -0.1, 10]} {...props} />
+      <PlaneSquare position={[6, -0.1, 10]} {...props} />
+      <PlaneSquare position={[8, -0.1, 10]} {...props} />
+      <PlaneSquare position={[10, -0.1, 10]} {...props} />
+      <PlaneSquare position={[-10, -0.1, 8]} {...props} />
+      <PlaneSquare position={[-8, -0.1, 8]} {...props} />
+      <PlaneSquare position={[-6, -0.1, 8]} {...props} />
+      <PlaneSquare position={[-4, -0.1, 8]} {...props} />
+      <PlaneSquare position={[-2, -0.1, 8]} {...props} />
+      <PlaneSquare position={[0, -0.1, 8]} {...props} />
+      <PlaneSquare position={[2, -0.1, 8]} {...props} />
+      <PlaneSquare position={[4, -0.1, 8]} {...props} />
+      <PlaneSquare position={[6, -0.1, 8]} {...props} />
+      <PlaneSquare position={[8, -0.1, 8]} {...props} />
+      <PlaneSquare position={[10, -0.1, 8]} {...props} />
+      <PlaneSquare position={[-10, -0.1, 6]} {...props} />
+      <PlaneSquare position={[-8, -0.1, 6]} {...props} />
+      <PlaneSquare position={[-6, -0.1, 6]} {...props} />
+      <PlaneSquare position={[-4, -0.1, 6]} {...props} />
+      <PlaneSquare position={[-2, -0.1, 6]} {...props} />
+      <PlaneSquare position={[0, -0.1, 6]} {...props} />
+      <PlaneSquare position={[2, -0.1, 6]} {...props} />
+      <PlaneSquare position={[4, -0.1, 6]} {...props} />
+      <PlaneSquare position={[6, -0.1, 6]} {...props} />
+      <PlaneSquare position={[8, -0.1, 6]} {...props} />
+      <PlaneSquare position={[10, -0.1, 6]} {...props} />
+      <PlaneSquare position={[-10, -0.1, 4]} {...props} />
+      <PlaneSquare position={[-8, -0.1, 4]} {...props} />
+      <PlaneSquare position={[-6, -0.1, 4]} {...props} />
+      <PlaneSquare position={[-4, -0.1, 4]} {...props} />
+      <PlaneSquare position={[-2, -0.1, 4]} {...props} />
+      <PlaneSquare position={[0, -0.1, 4]} {...props} />
+      <PlaneSquare position={[2, -0.1, 4]} {...props} />
+      <PlaneSquare position={[4, -0.1, 4]} {...props} />
+      <PlaneSquare position={[6, -0.1, 4]} {...props} />
+      <PlaneSquare position={[8, -0.1, 4]} {...props} />
+      <PlaneSquare position={[10, -0.1, 4]} {...props} />
+      <PlaneSquare position={[-10, -0.1, 2]} {...props} />
+      <PlaneSquare position={[-8, -0.1, 2]} {...props} />
+      <PlaneSquare position={[-6, -0.1, 2]} {...props} />
+      <PlaneSquare position={[-4, -0.1, 2]} {...props} />
+      <PlaneSquare position={[-2, -0.1, 2]} {...props} />
+      <PlaneSquare position={[0, -0.1, 2]} {...props} />
+      <PlaneSquare position={[2, -0.1, 2]} {...props} />
+      <PlaneSquare position={[4, -0.1, 2]} {...props} />
+      <PlaneSquare position={[6, -0.1, 2]} {...props} />
+      <PlaneSquare position={[8, -0.1, 2]} {...props} />
+      <PlaneSquare position={[10, -0.1, 2]} {...props} />
+    </group>
+  );
+}

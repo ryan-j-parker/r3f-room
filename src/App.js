@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import './App.css';
 import { ACESFilmicToneMapping, sRGBEncoding } from 'three';
 import Experience from './Experience';
+import AudioPlayer from './AudioPlayer';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           outputEncoding: sRGBEncoding,
         }}
       >
+        <AudioPlayer />
+
         <Environment
           preset="sunset"
           background
@@ -31,7 +34,7 @@ function App() {
         <Experience />
         <OrbitControls />
         <ambientLight intensity={0.8} />
-        <Sparkles
+        {/* <Sparkles
           count={200}
           scale={[15, 10, 15]}
           opacity={0.6}
@@ -42,7 +45,7 @@ function App() {
           speed={0.5}
           fadeSpeed={0.01}
           depthWrite={false}
-        />
+        /> */}
         {/* <Cloud
           scale={[10, 10, 10]}
           speed={0.1}

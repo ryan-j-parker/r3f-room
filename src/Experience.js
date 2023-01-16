@@ -8,6 +8,7 @@ import * as THREE from 'three';
 import { DoubleSide } from 'three';
 import { LoopOnce } from 'three';
 import Grid from './Grid';
+import Plane from './Plane';
 import Stag from './Stag';
 
 export default function Experience() {
@@ -20,17 +21,19 @@ export default function Experience() {
     metalnessMap: '/textures/terracotta/TilesTerracottaRedHexagon001_REFL_2k.jpg',
   });
 
+  const grid = useRef();
+
   const sphereMap = useTexture('/textures/terracotta/TilesTerracottaRedHexagon001_Sphere.png');
 
   return (
     <>
-      <Stag />
-      <Grid />
+      {/* <Stag /> */}
+      {/* <Grid /> */}
       {/* <mesh position={[0, -0.1, 0]} rotation={[Math.PI * -0.5, 0, 0]}>
         <planeGeometry args={[20, 20]} />
         <meshPhongMaterial color="green" side={DoubleSide} roughness={0.5} />
       </mesh> */}
-      <mesh position={[-10, -0.1, -10]} rotation={[Math.PI * -0.5, 0, 0]}>
+      {/* <mesh position={[-10, -0.1, -10]} rotation={[Math.PI * -0.5, 0, 0]}>
         <planeGeometry args={[20, 20]} />
         <meshStandardMaterial
           {...props}
@@ -39,7 +42,8 @@ export default function Experience() {
         //   roughness={0.7}
         //   metalness={0.1}
         />
-      </mesh>
+      </mesh> */}
+      <Plane />
     </>
   );
 }
